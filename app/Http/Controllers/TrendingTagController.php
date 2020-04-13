@@ -40,6 +40,14 @@ class TrendingTagController extends Controller
                     return '--';
                 }
             })
+            ->editColumn('status', function ($trendingtag) {
+                if ($trendingtag->status === "Active") {
+                    return '<span class="badge badge-success">Active</span>';
+                } else {
+                    return '<span class="badge badge-danger">Not Active</span>';
+                }
+            })
+            ->rawColumns(['action', 'status'])
             ->make(true);
 
         return $data;
