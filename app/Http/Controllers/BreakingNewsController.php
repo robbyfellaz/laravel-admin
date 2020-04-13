@@ -18,7 +18,15 @@ class BreakingNewsController extends Controller
 		return Datatables::of(BreakingNews::all())
 		    ->addColumn('action', function ($breakingnews) {
 			    return '<a href="breakingnews/edit/'.$breakingnews->id.'" class="btn btn-sm btn-warning">Edit</a> <a href="breakingnews/delete/'.$breakingnews->id.'" class="btn btn-sm btn-danger">Delete</a>';
-			})
+            })
+            ->editColumn('status', function ($breakingnews) {
+                if ($breakingnews->status === "Active") {
+                    return '<span class="badge badge-success">Active</span>';
+                } else {
+                    return '<span class="badge badge-danger">Not Active</span>';
+                }
+            })
+            ->rawColumns(['action', 'status'])
 		    ->make(true);
     }
 

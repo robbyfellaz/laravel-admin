@@ -26,6 +26,14 @@ class GroupController extends Controller
                   return '--';
               }
             })
+            ->editColumn('status', function ($group) {
+                if ($group->status === "Active") {
+                    return '<span class="badge badge-success">Active</span>';
+                } else {
+                    return '<span class="badge badge-danger">Not Active</span>';
+                }
+            })
+            ->rawColumns(['action', 'status'])
             ->make(true);
     }
 

@@ -48,6 +48,14 @@ class UserController extends Controller
                     return '--';
                 }
             })
+            ->editColumn('status', function ($user) {
+                if ($user->status === "Active") {
+                    return '<span class="badge badge-success">Active</span>';
+                } else {
+                    return '<span class="badge badge-danger">Not Active</span>';
+                }
+            })
+            ->rawColumns(['action', 'status'])
             ->make(true);
 
         return $data;
