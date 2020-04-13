@@ -6,7 +6,7 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Add New User</h3>
+                    <h3 class="card-title">Edit User</h3>
                 </div>
                 <form class="form-horizontal" method="post" action="{{route('user.update', $user->id)}}">
                     {{ csrf_field() }}
@@ -48,7 +48,7 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Group</label>
                             <div class="col-sm-9">
-                            <select class="form-control" name="groupId">
+                            <select class="form-control select2" style="width: 100%;" name="groupId">
                                 @foreach($groupCombo as $groupComboItem)
                                     <option value="{{ $groupComboItem->id }}" {{ $groupComboItem->id == $user->groupId ? 'selected' : '' }}>{{ $groupComboItem->name }}</option>
                                 @endforeach
@@ -91,4 +91,12 @@
         </div>
     </div>
 </div>
-@endsection
+@stop
+
+@push('scripts')
+<script>
+$(function () {
+    $('.select2').select2()
+})
+</script>
+@endpush

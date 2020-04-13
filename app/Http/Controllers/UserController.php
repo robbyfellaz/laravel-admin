@@ -16,7 +16,7 @@ class UserController extends Controller
         return view('user/user');
     }
 
-    public function listuser(){
+    public function listUser(){
         $query = User::query()
             ->select([
                 'users.id',

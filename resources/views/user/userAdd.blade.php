@@ -47,7 +47,7 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Group</label>
                             <div class="col-sm-9">
-                            <select class="form-control" name="groupId">
+                            <select class="form-control select2" style="width: 100%;" name="groupId">
                                 @foreach($groupCombo as $groupComboItem)
                                     <option value="{{ $groupComboItem->id }}">{{ $groupComboItem->name }}</option>
                                 @endforeach
@@ -90,4 +90,12 @@
         </div>
     </div>
 </div>
-@endsection
+@stop
+
+@push('scripts')
+<script>
+$(function () {
+    $('.select2').select2()
+})
+</script>
+@endpush

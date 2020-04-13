@@ -76,5 +76,4 @@ class TagController extends Controller
 		$tag->delete();
 		return redirect('/tag');
     }
-
 }
