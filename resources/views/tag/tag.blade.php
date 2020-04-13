@@ -8,10 +8,11 @@
                 <div class="card-header">
                     <h3 class="card-title">News Tag</h3>
                     <div class="card-tools">
+                        <a href="{{route('tag')}}" class="btn btn-success">Refresh</a>
                         <a href="{{route('tag.add')}}" class="btn btn-primary">Add Tag</a>
                     </div>
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="overflow: auto;">
                     <table class="table table-bordered table-hover" id="list-tag">
                         <thead>
                             <tr>

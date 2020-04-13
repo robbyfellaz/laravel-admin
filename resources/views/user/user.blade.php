@@ -8,10 +8,11 @@
                 <div class="card-header">
                     <h3 class="card-title">User</h3>
                     <div class="card-tools">
+                        <a href="{{route('user')}}" class="btn btn-success">Refresh</a>
                         <a href="{{route('user.add')}}" class="btn btn-primary">Add User</a>
                     </div>
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="overflow: auto;">
                     <table id="list-user" class="table table-bordered">
                         <thead>
                             <tr>

@@ -6,18 +6,18 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Group</h3>
+                    <h3 class="card-title">Breaking News</h3>
                     <div class="card-tools">
-                        <a href="{{route('group')}}" class="btn btn-success">Refresh</a>
-                        <a href="{{route('group.add')}}" class="btn btn-primary">Add Group</a>
+                        <a href="{{route('breakingnews')}}" class="btn btn-success">Refresh</a>
+                        <a href="{{route('breakingnews.add')}}" class="btn btn-primary">Add Breaking News</a>
                     </div>
                 </div>
                 <div class="card-body" style="overflow: auto;">
-                    <table class="table table-bordered table-hover" id="list-group">
+                    <table class="table table-bordered table-hover" id="list-breakingnews">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Description</th>
+                                <th>Title</th>
+                                <th>URL</th>
                                 <th>Status</th>
                                 <th>Last Modified</th>
                                 <th>Created Date</th>
@@ -35,13 +35,13 @@
 @push('scripts')
 <script>
 $(function() {
-    $('#list-group').DataTable({
+    $('#list-breakingnews').DataTable({
         processing: true,
         serverSide: true,
-        ajax: '{{ route("list.group") }}',
+        ajax: '{{ route("list.breakingnews") }}',
         columns: [
-            { data: 'name', name: 'name' },
-            { data: 'desc', name: 'desc' },
+            { data: 'title', name: 'title' },
+            { data: 'url', name: 'url' },
             { data: 'status', name: 'status' },
             { data: 'updated_at', name: 'updated_at' },
             { data: 'created_at', name: 'created_at' },

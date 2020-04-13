@@ -6,17 +6,18 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Group</h3>
+                    <h3 class="card-title">News Category</h3>
                     <div class="card-tools">
-                        <a href="{{route('group')}}" class="btn btn-success">Refresh</a>
-                        <a href="{{route('group.add')}}" class="btn btn-primary">Add Group</a>
+                        <a href="{{route('category')}}" class="btn btn-success">Refresh</a>
+                        <a href="{{route('category.add')}}" class="btn btn-primary">Add Category</a>
                     </div>
                 </div>
                 <div class="card-body" style="overflow: auto;">
-                    <table class="table table-bordered table-hover" id="list-group">
+                    <table class="table table-bordered table-hover" id="list-category">
                         <thead>
                             <tr>
-                                <th>Name</th>
+                                <th>Category</th>
+                                <th>URL</th>
                                 <th>Description</th>
                                 <th>Status</th>
                                 <th>Last Modified</th>
@@ -35,12 +36,13 @@
 @push('scripts')
 <script>
 $(function() {
-    $('#list-group').DataTable({
+    $('#list-category').DataTable({
         processing: true,
         serverSide: true,
-        ajax: '{{ route("list.group") }}',
+        ajax: '{{ route("list.category") }}',
         columns: [
-            { data: 'name', name: 'name' },
+            { data: 'title', name: 'title' },
+            { data: 'url', name: 'url' },
             { data: 'desc', name: 'desc' },
             { data: 'status', name: 'status' },
             { data: 'updated_at', name: 'updated_at' },

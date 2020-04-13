@@ -7,8 +7,11 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Contact Us</h3>
+                    <div class="card-tools">
+                        <a href="{{route('contactus')}}" class="btn btn-success">Refresh</a>
+                    </div>
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="overflow: auto;">
                     <table class="table table-bordered table-hover" id="list-contactus">
                         <thead>
                             <tr>

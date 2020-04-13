@@ -28,6 +28,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/news/delete/{id}', 'NewsController@delete')->name('news.delete');
 
     Route::get('/category', 'CategoryController@index')->name('category');
+    Route::get('/category/listcategory', 'CategoryController@listCategory')->name('list.category');
     Route::get('/category/add', 'CategoryController@add')->name('category.add');
     Route::post('/category/store', 'CategoryController@store')->name('category.store');
     Route::get('/category/edit/{id}', 'CategoryController@edit')->name('category.edit');
@@ -43,6 +44,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/tag/delete/{id}', 'TagController@delete')->name('tag.delete');
 
     Route::get('/trendingtag', 'TrendingTagController@index')->name('trendingtag');
+    Route::get('/trendingtag/listtrendingtag', 'TrendingTagController@listTrendingTag')->name('list.trendingtag');
     Route::get('/trendingtag/add', 'TrendingTagController@add')->name('trendingtag.add');
     Route::post('/trendingtag/store', 'TrendingTagController@store')->name('trendingtag.store');
     Route::get('/trendingtag/edit/{id}', 'TrendingTagController@edit')->name('trendingtag.edit');
@@ -64,6 +66,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/recommended/delete/{id}', 'RecommendedController@delete')->name('recommended.delete');
 
     Route::get('/breakingnews', 'BreakingNewsController@index')->name('breakingnews');
+    Route::get('/breakingnews/listbreakingnews', 'BreakingNewsController@listBreakingNews')->name('list.breakingnews');
     Route::get('/breakingnews/add', 'BreakingNewsController@add')->name('breakingnews.add');
     Route::post('/breakingnews/store', 'BreakingNewsController@store')->name('breakingnews.store');
     Route::get('/breakingnews/edit/{id}', 'BreakingNewsController@edit')->name('breakingnews.edit');
