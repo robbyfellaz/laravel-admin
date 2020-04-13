@@ -22,17 +22,18 @@
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
-                <!-- <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Title page</a>
-                </li> -->
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
-                        <img width="30px" src="{{ asset('assets/dist/img/avatar5.png') }}" class="img-circle elevation-2" alt="User Image">
+                        <span>Hello, &nbsp;{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}</span>
+                        <i class="fas fa-angle-down" style="margin: 5px;"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
-                        <a class="dropdown-item dropdown-footer" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <a class="dropdown-item" href="{{ route('logout') }}">
+                            Change Password
+                        </a>
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             Logout
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -50,7 +51,7 @@
             </a>
             <div class="sidebar">
                 <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent nav-flat" data-widget="treeview" role="menu" data-accordion="false">
+                    <ul class="nav nav-pills nav-sidebar flex-column nav-flat" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item">
                             <a href="{{ route('dashboard') }}" class="nav-link">
                                 <i class="nav-icon fas fa-chart-line"></i>
@@ -86,13 +87,13 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('tag') }}" class="nav-link">
-                                        <i class="nav-icon"></i>
+                                        <i class="nav-icon fas fa-angle-right"></i>
                                         <p>News Tag</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('trendingtag') }}" class="nav-link">
-                                        <i class="nav-icon"></i>
+                                        <i class="nav-icon fas fa-angle-right"></i>
                                         <p>Trending Tag</p>
                                     </a>
                                 </li>
@@ -109,19 +110,19 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('headline') }}" class="nav-link">
-                                        <i class="nav-icon"></i>
+                                        <i class="nav-icon fas fa-angle-right"></i>
                                         <p>Headline</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('recommended') }}" class="nav-link">
-                                        <i class="nav-icon"></i>
+                                        <i class="nav-icon fas fa-angle-right"></i>
                                         <p>Recommended</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('breakingnews') }}" class="nav-link">
-                                        <i class="nav-icon"></i>
+                                        <i class="nav-icon fas fa-angle-right"></i>
                                         <p>Breaking News</p>
                                     </a>
                                 </li>
@@ -138,7 +139,7 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('contactus') }}" class="nav-link">
-                                        <i class="nav-icon"></i>
+                                        <i class="nav-icon fas fa-angle-right"></i>
                                         <p>Contact Us</p>
                                     </a>
                                 </li>
@@ -155,13 +156,13 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('user') }}" class="nav-link">
-                                        <i class="nav-icon"></i>
+                                        <i class="nav-icon fas fa-angle-right"></i>
                                         <p>Users</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('group') }}" class="nav-link">
-                                        <i class="nav-icon"></i>
+                                        <i class="nav-icon fas fa-angle-right"></i>
                                         <p>Group</p>
                                     </a>
                                 </li>

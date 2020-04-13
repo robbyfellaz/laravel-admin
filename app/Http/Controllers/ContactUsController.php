@@ -11,10 +11,10 @@ class ContactUsController extends Controller
 {
     public function index()
     {
-    	return view('contactUs/contactUs');
+    	  return view('contactUs/contactUs');
     }
 
     public function listContactUs(){
-		return Datatables::of(ContactUs::all())->make(true);
+		    return Datatables::of(ContactUs::all())->make(true);
     }
 }

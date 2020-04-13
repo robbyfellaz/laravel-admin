@@ -17,6 +17,7 @@
                             <tr>
                                 <th>Tag</th>
                                 <th>URL</th>
+                                <th>Description</th>
                                 <th>Last Modified</th>
                                 <th>Created Date</th>
                                 <th>Action</th>
@@ -40,6 +41,7 @@ $(function() {
         columns: [
             { data: 'name', name: 'name' },
             { data: 'url', name: 'url' },
+            { data: 'desc', name: 'desc' },
             { data: 'updated_at', name: 'updated_at' },
             { data: 'created_at', name: 'created_at' },
             { data: 'action', name: 'action', orderable: false, searchable: false}

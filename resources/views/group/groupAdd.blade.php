@@ -14,7 +14,7 @@
                         <div class="form-group row">
                             <label class="col-sm-3">Name</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="name" placeholder="Name">
+                                <input type="text" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" placeholder="Name" required>
                                 @if($errors->has('name'))
                                 <div class="text-danger">
                                     {{ $errors->first('name')}}

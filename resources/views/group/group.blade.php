@@ -41,9 +41,7 @@ $(function() {
         columns: [
             { data: 'name', name: 'name' },
             { data: 'desc', name: 'desc' },
-            { data: 'status', 'render': function (data, type, row) {
-                return (data === "1") ? 'Active' : 'Not Active';}
-            },
+            { data: 'status', name: 'status' },
             { data: 'updated_at', name: 'updated_at' },
             { data: 'created_at', name: 'created_at' },
             { data: 'action', name: 'action', orderable: false, searchable: false}

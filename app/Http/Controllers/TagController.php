@@ -19,7 +19,14 @@ class TagController extends Controller
 		return Datatables::of(Tag::all())
 		    ->addColumn('action', function ($tag) {
 			    return '<a href="tag/edit/'.$tag->id.'" class="btn btn-sm btn-warning">Edit</a> <a href="tag/delete/'.$tag->id.'" class="btn btn-sm btn-danger">Delete</a>';
-		    })
+			})
+			->editColumn('desc', function ($tag) {
+                if ($tag->desc) {
+                    return $tag->desc;
+                } else {
+                    return '--';
+                }
+            })
 		    ->make(true);
     }
 
@@ -32,12 +39,12 @@ class TagController extends Controller
     {
     	$this->validate($request,[
     		'name' => 'required',
-    		'url' => 'required'
-    	]);
+		]);
 
     	Tag::create([
     		'name' => $request->name,
-    		'url' => $request->url
+			'url' => str_replace(' ', '-', strtolower($request->name)),
+			'desc' => $request->desc
     	]);
   
     	return redirect('/tag');
@@ -53,12 +60,12 @@ class TagController extends Controller
     {
 		$this->validate($request,[
 			'name' => 'required',
-			'url' => 'required'
 		]);
 
 		$tag = Tag::find($id);
 		$tag->name = $request->name;
-		$tag->url = $request->url;
+		$tag->url = str_replace(' ', '-', strtolower($request->name));
+		$tag->desc = $request->desc;
 		$tag->save();
 		return redirect('/tag');
     }

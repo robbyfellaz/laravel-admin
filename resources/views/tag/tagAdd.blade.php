@@ -12,9 +12,9 @@
                     {{ csrf_field() }}
                     <div class="card-body">
                         <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">Tag Name</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" name="name" placeholder="Tag Name">
+                            <label class="col-sm-3 col-form-label">Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" placeholder="Add Name" required>
                                 @if($errors->has('name'))
                                 <div class="text-danger">
                                     {{ $errors->first('name')}}
@@ -23,14 +23,9 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="inputPassword3" class="col-sm-2 col-form-label">Tag URL</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" name="url" placeholder="Tag URL">
-                                @if($errors->has('url'))
-                                <div class="text-danger">
-                                    {{ $errors->first('url')}}
-                                </div>
-                                @endif
+                            <label class="col-sm-3 col-form-label">Description</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" rows="3" name="desc" placeholder="Add Description"></textarea>
                             </div>
                         </div>
                     </div>
