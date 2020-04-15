@@ -38,7 +38,7 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Custom URL</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control {{ $errors->has('custom_url') ? ' is-invalid' : '' }}" name="custom_url" placeholder="Add Custom URL" value="{{ $trendingtag->custom_url }}">
+                                <input type="text" class="form-control" name="custom_url" placeholder="Add Custom URL" value="{{ $trendingtag->custom_url }}">
                             </div>
                         </div>
 

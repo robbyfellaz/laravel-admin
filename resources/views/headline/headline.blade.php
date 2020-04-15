@@ -6,19 +6,20 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Trending Tag</h3>
+                    <h3 class="card-title">Headline</h3>
                     <div class="card-tools">
-                        <a href="{{route('trendingtag')}}" class="btn btn-success">Refresh</a>
-                        <a href="{{route('trendingtag.add')}}" class="btn btn-primary">Add Trending Tag</a>
+                        <a href="{{route('headline')}}" class="btn btn-success">Refresh</a>
+                        <a href="{{route('headline.add')}}" class="btn btn-primary">Add Headline</a>
                     </div>
                 </div>
                 <div class="card-body" style="overflow: auto;">
-                    <table id="list-trendingtag" class="table table-bordered">
+                    <table id="list-headline" class="table table-bordered">
                         <thead>
                             <tr>
                                 <th>Title</th>
-                                <th>Tag</th>
-                                <th>Custom URL</th>
+                                <th>Category</th>
+                                <th>Image</th>
+                                <th>Label</th>
                                 <th>Order</th>
                                 <th>Status</th>
                                 <th>Last Modified</th>
@@ -37,15 +38,16 @@
 @push('scripts')
 <script>
 $(function() {
-    $('#list-trendingtag').DataTable({
+    $('#list-headline').DataTable({
         processing: true,
         serverSide: true,
-        ajax: '{{ route("list.trendingtag") }}',
+        ajax: '{{ route("list.headline") }}',
         columns: [
-            { data: 'trendingtagtitle', name: 'trendingtag.title'},
-            { data: 'tagname', name: 'tag.name' },
-            { data: 'custom_url', name: 'custom_url', width: "10%" },
-            { data: 'order', name: 'order'},
+            { data: 'headlinetitle', name: 'headline.title'},
+            { data: 'categorytitle', name: 'category.title' },
+            { data: 'image', name: 'image', width: "12%" },
+            { data: 'label', name: 'label' },
+            { data: 'order', name: 'order' },
             { data: 'status', name: 'status' },
             { data: 'created_at', name: 'created_at' },
             { data: 'updated_at', name: 'updated_at' },

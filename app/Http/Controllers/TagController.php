@@ -26,7 +26,11 @@ class TagController extends Controller
                 } else {
                     return '--';
                 }
-            })
+			})
+			->editColumn('name', function ($tag) {
+                return '<a href="tag/'.$tag->url.'" target="_blank">'.$tag->name.'</a>';
+			})
+			->rawColumns(['action', 'desc', 'name'])
 		    ->make(true);
     }
 

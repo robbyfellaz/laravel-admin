@@ -26,7 +26,10 @@ class BreakingNewsController extends Controller
                     return '<span class="badge badge-danger">Not Active</span>';
                 }
             })
-            ->rawColumns(['action', 'status'])
+            ->editColumn('title', function ($breakingnews) {
+                return '<a href="'.$breakingnews->url.'" target="_blank">'.$breakingnews->title.'</a>';
+            })
+            ->rawColumns(['action', 'status', 'title'])
 		    ->make(true);
     }
 
