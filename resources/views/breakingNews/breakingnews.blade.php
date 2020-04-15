@@ -17,7 +17,6 @@
                         <thead>
                             <tr>
                                 <th>Title</th>
-                                <th>URL</th>
                                 <th>Status</th>
                                 <th>Last Modified</th>
                                 <th>Created Date</th>
@@ -41,7 +40,6 @@ $(function() {
         ajax: '{{ route("list.breakingnews") }}',
         columns: [
             { data: 'title', name: 'title' },
-            { data: 'url', name: 'url' },
             { data: 'status', name: 'status' },
             { data: 'updated_at', name: 'updated_at' },
             { data: 'created_at', name: 'created_at' },

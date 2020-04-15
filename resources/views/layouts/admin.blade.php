@@ -32,7 +32,7 @@
                         <i class="fas fa-angle-down" style="margin: 5px;"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
-                        <a class="dropdown-item" href="{{ route('logout') }}">
+                        <a class="dropdown-item" href="#">
                             Profile
                         </a>
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -200,6 +200,7 @@
     <script src="{{ asset('assets/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/select2/js/select2.full.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
     <script src="{{ asset('assets/dist/js/adminlte.min.js') }}" ></script>
     <script src="{{ asset('assets/dist/js/demo.js') }}" ></script>
     @stack('scripts')

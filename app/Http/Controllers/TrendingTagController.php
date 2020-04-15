@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Trendingtag;
+use App\TrendingTag;
 use App\Tag;
 use DataTables;
 
@@ -25,7 +25,8 @@ class TrendingTagController extends Controller
                 'trendingtag.status',
                 'trendingtag.created_at',
                 'trendingtag.updated_at',
-                'tag.name as tagname'
+                'tag.name as tagname',
+                'tag.url as tagurl'
             ])
             ->leftJoin('tag', 'trendingtag.tagId', '=', 'tag.id');
 
@@ -47,7 +48,14 @@ class TrendingTagController extends Controller
                     return '<span class="badge badge-danger">Not Active</span>';
                 }
             })
-            ->rawColumns(['action', 'status'])
+            ->editColumn('trendingtagtitle', function ($trendingtag) {
+                if ($trendingtag->custom_url) {
+                    return '<a href="'.$trendingtag->custom_url.'" target="_blank">'.$trendingtag->trendingtagtitle.'</a>';
+                } else {
+                    return '<a href="tag/'.$trendingtag->tagurl.'" target="_blank">'.$trendingtag->trendingtagtitle.'</a>';
+                }
+            })
+            ->rawColumns(['action', 'custom_url', 'status', 'trendingtagtitle'])
             ->make(true);
 
         return $data;

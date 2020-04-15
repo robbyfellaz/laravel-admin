@@ -33,7 +33,10 @@ class CategoryController extends Controller
                     return '<span class="badge badge-danger">Not Active</span>';
                 }
             })
-            ->rawColumns(['action', 'status'])
+            ->editColumn('title', function ($category) {
+                return '<a href="category/'.$category->url.'" target="_blank">'.$category->title.'</a>';
+			})
+            ->rawColumns(['action', 'status', 'title'])
 		    ->make(true);
     }
 

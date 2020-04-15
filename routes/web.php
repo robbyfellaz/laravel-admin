@@ -11,16 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-});
-
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('/', function () {
+        return view('dashboard');
+    });
+
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
     Route::get('/news', 'NewsController@index')->name('news');
+    Route::get('/news/listuser', 'NewsController@listNews')->name('list.news');
     Route::get('/news/add', 'NewsController@add')->name('news.add');
     Route::post('/news/store', 'NewsController@store')->name('news.store');
     Route::get('/news/edit/{id}', 'NewsController@edit')->name('news.edit');
@@ -52,6 +53,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/trendingtag/delete/{id}', 'TrendingTagController@delete')->name('trendingtag.delete');
 
     Route::get('/headline', 'HeadlineController@index')->name('headline');
+    Route::get('/headline/listheadline', 'HeadlineController@listHeadline')->name('list.headline');
     Route::get('/headline/add', 'HeadlineController@add')->name('headline.add');
     Route::post('/headline/store', 'HeadlineController@store')->name('headline.store');
     Route::get('/headline/edit/{id}', 'HeadlineController@edit')->name('headline.edit');
@@ -59,6 +61,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/headline/delete/{id}', 'HeadlineController@delete')->name('headline.delete');
 
     Route::get('/recommended', 'RecommendedController@index')->name('recommended');
+    Route::get('/recommended/listrecommended', 'RecommendedController@listRecommended')->name('list.recommended');
     Route::get('/recommended/add', 'RecommendedController@add')->name('recommended.add');
     Route::post('/recommended/store', 'RecommendedController@store')->name('recommended.store');
     Route::get('/recommended/edit/{id}', 'RecommendedController@edit')->name('recommended.edit');
