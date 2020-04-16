@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="{{ asset('assets/plugins/select2/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/dist/css/adminlte.min.css') }}">
+    <link href="{{ asset('assets/plugins/datetimepicker/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/summernote/summernote-bs4.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 
@@ -55,7 +57,7 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column nav-flat" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item">
-                            <a href="{{ route('dashboard') }}" class="nav-link">
+                            <a href="{{ route('dashboard') }}" class="nav-link" title="Dashboard">
                                 <i class="nav-icon fas fa-chart-line"></i>
                                 <p>
                                     Dashboard
@@ -63,7 +65,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('news') }}" class="nav-link">
+                            <a href="{{ route('news') }}" class="nav-link" title="News">
                                 <i class="nav-icon fas fa-edit"></i>
                                 <p>
                                     News
@@ -71,7 +73,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('category') }}" class="nav-link">
+                            <a href="{{ route('category') }}" class="nav-link" title="Category">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Category
@@ -88,13 +90,13 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="{{ route('tag') }}" class="nav-link">
+                                    <a href="{{ route('tag') }}" class="nav-link" title="News Tag">
                                         <i class="nav-icon fas fa-angle-right"></i>
                                         <p>News Tag</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('trendingtag') }}" class="nav-link">
+                                    <a href="{{ route('trendingtag') }}" class="nav-link" title="Trending Tag">
                                         <i class="nav-icon fas fa-angle-right"></i>
                                         <p>Trending Tag</p>
                                     </a>
@@ -111,19 +113,19 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="{{ route('headline') }}" class="nav-link">
+                                    <a href="{{ route('headline') }}" class="nav-link" title="Headline">
                                         <i class="nav-icon fas fa-angle-right"></i>
                                         <p>Headline</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('recommended') }}" class="nav-link">
+                                    <a href="{{ route('recommended') }}" class="nav-link" title="Recommended">
                                         <i class="nav-icon fas fa-angle-right"></i>
                                         <p>Recommended</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('breakingnews') }}" class="nav-link">
+                                    <a href="{{ route('breakingnews') }}" class="nav-link" title="Breaking News">
                                         <i class="nav-icon fas fa-angle-right"></i>
                                         <p>Breaking News</p>
                                     </a>
@@ -140,7 +142,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="{{ route('contactus') }}" class="nav-link">
+                                    <a href="{{ route('contactus') }}" class="nav-link" title="Contact Us">
                                         <i class="nav-icon fas fa-angle-right"></i>
                                         <p>Contact Us</p>
                                     </a>
@@ -157,13 +159,13 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="{{ route('user') }}" class="nav-link">
+                                    <a href="{{ route('user') }}" class="nav-link" title="Users">
                                         <i class="nav-icon fas fa-angle-right"></i>
                                         <p>Users</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('group') }}" class="nav-link">
+                                    <a href="{{ route('group') }}" class="nav-link" title="Group">
                                         <i class="nav-icon fas fa-angle-right"></i>
                                         <p>Group</p>
                                     </a>
@@ -203,6 +205,14 @@
     <script src="{{ asset('assets/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
     <script src="{{ asset('assets/dist/js/adminlte.min.js') }}" ></script>
     <script src="{{ asset('assets/dist/js/demo.js') }}" ></script>
+    <script type="text/javascript" src="{{ asset('assets/plugins/datetimepicker/js/bootstrap-datetimepicker.js') }}" charset="UTF-8"></script>
+    <script type="text/javascript" src="{{ asset('assets/plugins/datetimepicker/js/locales/bootstrap-datetimepicker.fr.js') }}" charset="UTF-8"></script>
+    <script src="{{ asset('assets/plugins/summernote/summernote-bs4.min.js') }}"></script>
+    <script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();   
+        });
+    </script>
     @stack('scripts')
 </body>
 </html>
