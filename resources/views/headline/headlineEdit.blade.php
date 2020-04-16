@@ -39,9 +39,6 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Image</label>
                             <div class="col-sm-9">
-                                <div class="attachment-block clearfix">
-                                    <img class="img-fluid pad" id="image_preview_container" src="{{ $contentImage }}" alt="preview image">
-                                </div>
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input {{ $errors->has('image') ? ' is-invalid' : '' }}" id="image" name="image">
                                     <label class="custom-file-label" for="image">Upload image</label>
@@ -50,6 +47,9 @@
                                         {{ $errors->first('image')}}
                                     </div>
                                     @endif
+                                </div>
+                                <div class="attachment-block clearfix" style="margin-top: 5px;">
+                                    <img class="img-fluid pad" id="image_preview_container" src="{{ $contentImage }}" alt="preview image">
                                 </div>
                             </div>
                         </div>

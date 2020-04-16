@@ -21,15 +21,15 @@ class CreateNewsTable extends Migration
             $table->string('image');
             $table->string('imageinfo')->nullable();
             $table->integer('categoryId');
-            $table->integer('tagId');
+            $table->json('tagId');
             $table->string('url');
             $table->dateTime('datePublish');
             $table->integer('userId');
             $table->integer('reporterId')->nullable();
             $table->integer('editorId')->nullable();
             $table->integer('photographerId')->nullable();
-            $table->boolean('isHeadline')->default(0);
-            $table->boolean('isEditorPick')->default(0);
+            $table->string('isHeadline')->default('No');
+            $table->string('isEditorPick')->default('No');
             $table->string('status')->default('Active');
             $table->timestamps();
         });
