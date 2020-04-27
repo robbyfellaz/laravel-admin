@@ -147,6 +147,12 @@
                                         <p>Contact Us</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('newsletter') }}" class="nav-link" title="Newsletter">
+                                        <i class="nav-icon fas fa-angle-right"></i>
+                                        <p>Newsletter</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li class="nav-item has-treeview">
