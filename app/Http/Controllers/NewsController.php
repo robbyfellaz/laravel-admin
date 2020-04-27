@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use App\News;
 use App\Category;
 use App\Tag;
+use App\TagNews;
 use App\User;
 use DataTables;
 use Image;
@@ -121,7 +122,7 @@ class NewsController extends Controller
         }
 
         $urlNews = str_replace(' ', '-', strtolower($request->title)).'-'.uniqid().'.html';
-        News::create([
+        $news = News::create([
             'title' => $request->title,
             'synopsis' => $request->synopsis,
             'image' => $fileName,
@@ -139,6 +140,17 @@ class NewsController extends Controller
             'isEditorPick' => $isEditorPick,
             'status' => $status,
         ]);
+
+        foreach ($request->tagId as $k => $v) {
+            $tag = Tag::where('id', $v)->first();
+
+            TagNews::create([
+                'tagId' => $tag->id,
+                'tagName' => $tag->name,
+                'tagURL' => $tag->url,
+                'newsId' => $news->id,
+            ]);
+        }
 
         return redirect('/news');
     }
@@ -217,6 +229,19 @@ class NewsController extends Controller
         }
 
         $news->save();
+
+        TagNews::where('newsId', $id)->delete();
+        foreach ($request->tagId as $k => $v) {
+            $tag = Tag::where('id', $v)->first();
+
+            TagNews::create([
+                'tagId' => $tag->id,
+                'tagName' => $tag->name,
+                'tagURL' => $tag->url,
+                'newsId' => $id,
+            ]);
+        }
+
         return redirect('/news');
     }
 

@@ -16,6 +16,7 @@
                         <thead>
                             <tr>
                                 <th>Name</th>
+                                <th>Address</th>
                                 <th>E-mail</th>
                                 <th>Phone</th>
                                 <th>Content</th>
@@ -39,6 +40,7 @@ $(function() {
         ajax: '{{ route("list.contactus") }}',
         columns: [
             { data: 'name', name: 'name' },
+            { data: 'address', name: 'address' },
             { data: 'email', name: 'email' },
             { data: 'phone', name: 'phone' },
             { data: 'content', name: 'content' },
