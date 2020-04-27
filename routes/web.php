@@ -78,11 +78,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/contactus', 'ContactUsController@index')->name('contactus');
     Route::get('/contactus/listcontactus', 'ContactUsController@listContactUs')->name('list.contactus');
-    Route::get('/contactus/add', 'ContactUsController@add')->name('contactus.add');
-    Route::post('/contactus/store', 'ContactUsController@store')->name('contactus.store');
-    Route::get('/contactus/edit/{id}', 'ContactUsController@edit')->name('contactus.edit');
-    Route::put('/contactus/update/{id}', 'ContactUsController@update')->name('contactus.update');
-    Route::get('/contactus/delete/{id}', 'ContactUsController@delete')->name('contactus.delete');
+
+    Route::get('/newsletter', 'NewsletterController@index')->name('newsletter');
+    Route::get('/newsletter/listnewsletter', 'NewsletterController@listnewsletter')->name('list.newsletter');
 
     Route::get('/user', 'UserController@index')->name('user');
     Route::get('/user/listuser', 'UserController@listUser')->name('list.user');
