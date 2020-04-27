@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateContactusTable extends Migration
+class CreateTagNewsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateContactusTable extends Migration
      */
     public function up()
     {
-        Schema::create('contactus', function (Blueprint $table) {
+        Schema::create('tag_news', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('address');
-            $table->string('email');
-            $table->string('phone');
-            $table->text('content');
+            $table->integer('tagId');
+            $table->string('tagName');
+            $table->string('tagURL');
+            $table->integer('newsId');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateContactusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contactus');
+        Schema::dropIfExists('tag_news');
     }
 }
